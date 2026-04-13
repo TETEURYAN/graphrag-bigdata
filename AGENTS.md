@@ -316,6 +316,70 @@ BREAKING CHANGE: --type flag renamed to --mode (local | global).
 ```
 
 ---
+### 5.5 Padrão de nomes para Pull Request
+## Pull Requests — Padrão Obrigatório
+
+Esta seção define como Pull Requests (PRs) devem ser criados e organizados neste projeto.
+
+---
+
+### Estratégia de Merge
+
+- Todos os PRs devem usar **Squash and Merge**
+- Nunca usar:
+  - Merge commit
+  - Rebase and merge (a menos que explicitamente solicitado)
+
+**Objetivo**:
+- Manter histórico limpo
+- Garantir 1 PR = 1 commit lógico
+
+---
+
+### Nome do Pull Request
+
+O título do PR é **obrigatório** e deve seguir o padrão:
+<MSC>-<número>: <descrição curta>
+
+#### Regras:
+
+- `<MSC>` = 3 primeiras letras da milestone (em maiúsculo)
+- `<número>` = identificador da task
+- A descrição deve ser:
+  - Curta
+  - Direta
+  - Sem termos genéricos como "update", "fix stuff"
+
+#### Exemplos:
+
+``` c
+DAT-01: Inicia projeto
+INF-03: Add vLLM client integration
+ING-07: Implement PDF ingestion pipeline
+
+```
+---
+
+### Conteúdo do PR
+
+Todo PR deve conter:
+
+- O que foi feito
+- Por que foi feito
+- Impacto no pipeline (se houver)
+
+#### Template recomendado:
+
+```md
+### O que
+- ...
+
+### Por quê
+- ...
+
+### Impacto
+- Afeta ingestão / indexação / query / infra
+```
 
 ## 6. Boas Práticas
 
