@@ -1,0 +1,9 @@
+[project]
+name = "graphrag-bigdata"
+version = "0.1.0"
+description = "Arquitetura que coleta, processa e executa o framework graphrag com Minio e vLLM"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "graphrag>=3.0.8",
+]
