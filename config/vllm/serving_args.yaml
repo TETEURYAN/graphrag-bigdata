@@ -1,0 +1,16 @@
+# Parâmetros de referência para vLLM (use scripts/start_vllm.sh).
+# Dois processos: LLM (geração) e modelo de embedding em portas distintas.
+
+llm:
+  model: Qwen/Qwen2.5-7B-Instruct
+  port: 8000
+  tensor_parallel_size: 1
+  max_model_len: 8192
+  extra_args:
+    - --enable-prefix-caching
+
+embedding:
+  model: BAAI/bge-m3
+  port: 8001
+  task: embedding
+  max_model_len: 8192
