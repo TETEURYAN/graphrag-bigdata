@@ -1,0 +1,10 @@
+# Caminhos usados pelos scripts Python (GraphRAG lê settings em GRAPHRAG_ROOT).
+paths:
+  graphrag_root: data
+  local_input: data/input
+  local_output: data/output
+
+minio:
+  raw_prefix: raw/
+  processed_prefix: processed/
+  artifacts_prefix: artifacts/
