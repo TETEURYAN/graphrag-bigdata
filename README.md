@@ -38,6 +38,23 @@ Fluxo principal:
 
 ---
 
+## Dataset
+
+O grafo de conhecimento de referência deste projeto foi indexado a partir de prontuários eletrônicos de pacientes atendidos no serviço de Hepatologia do HU-UFAL entre 2020 e 2025 (≈800 registros, concatenados em um único documento de entrada antes da indexação). Nenhum dado clínico bruto é versionado neste repositório — apenas os artefatos agregados gerados pelo GraphRAG (`entities`, `relationships`, `communities`, `text_units`), persistidos como Parquet no bucket `graph-artifacts` do MinIO.
+
+Volumes do último run de referência:
+
+| Artefato | Linhas | Conteúdo |
+|---|---|---|
+| `entities.parquet` | 26.966 | Entidades extraídas (título, tipo, grau, frequência) |
+| `relationships.parquet` | 88.347 | Pares de entidades e peso da relação |
+| `communities.parquet` | 4.639 | Comunidades Leiden hierárquicas (níveis 0–6) |
+| `text_units.parquet` | 5.541 | Unidades de texto (*chunks*) indexadas |
+
+Parâmetros de indexação (`data/settings.yaml`): chunks de 1200 tokens com overlap de 100, `max_cluster_size` 10. Os tipos de entidade combinam categorias padrão do GraphRAG (`organization`, `person`, `geo`, `event`) com tipos clínicos customizados (e.g. `CONDICAO_CLINICA`, `MEDICAMENTO`, `EXAME`, `PROCEDIMENTO`).
+
+---
+
 ## Principais funcionalidades
 
 - Editor/gestão de base de conhecimento (regras e fatos) — estrutura para representar conhecimento.
